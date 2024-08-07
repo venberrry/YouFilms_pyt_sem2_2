@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta charset="utf-8">
+        <title>YouFilms</title>
+		{% block headers %}
+		{% endblock %}
+        <link rel="stylesheet" type="text/css" href="../static/css/StyleMain.css"/>
+	</head>
+	<body>
+		<div class="header_wrap">
+			<header class="header_navigation">
+				<div class="header_mains_container">
+					<div class="header_logos" >
+						<a href="{{ url_for('film_list') }}">
+							<img src="../static/assets/images/icon_head.svg">
+							</img>
+						</a>
+
+					</div>
+
+					<div class="header_main_navigations">
+						<div class="nav_group">
+							<nav class="nav_header">
+								<a class="a_header" href="{{ url_for('film_list') }}">Главная</a>
+								<a class="a_header a_header_plus" href="{{ url_for('create_film') }}">Добавить фильм</a>
+								<a class="a_header a_header_plus" href="{{ url_for('series') }}">Сериалы</a>
+							</nav>
+						</div>
+
+					</div>
+
+
+				</div>
+				<div class = "user">
+					{% if session['auth'] %}
+                    	<a class="login" href="{{ url_for('profile') }}" >[{{ session['login'] }}]</a>
+					{% else %}
+						<a class="login" href="{{ url_for('login') }}">Войти</a>
+					{% endif %}
+                </div>
+			</header>
+		</div>
+
+{% block content %}
+{% endblock %}
+
+		<footer class="footer">
+			<div class="footer_elem_year_wrap">
+				<div class="footer_elements_wrap">
+					<div class="logo_group">
+						<a class="logo_group" href="{{ url_for('film_list') }}">
+							<div class="footer_icon">
+								<img src="../static/assets/images/icon_footer.svg"/>
+							</div>
+							<div class="footer_logo">
+								<img src="../static/assets/images/logo_footer.svg"/>
+							</div>
+						</a>
+					</div>
+					<div class="footer_nav">
+						<nav class="footer_nav_wrap">
+							<a class="a_footer" href="{{ url_for('film_list') }}">О сайте</a>
+							<a class="a_footer" href="{{ url_for('support') }}">Помощь</a>
+							<a class="a_footer a_footer_end" href="{{ url_for('film_list') }}">Контакты</a>
+						</nav>
+					</div>
+
+				</div>
+				<div class="footer_year">
+						<a class ="year_note">2024</a>
+					</div>
+			</div>
+		</footer>
+
+	</body>
+</html>

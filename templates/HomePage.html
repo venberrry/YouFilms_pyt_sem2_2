@@ -1,0 +1,126 @@
+{% extends 'MainPage.html' %}
+
+{% block title %}
+    Главная страница
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="static/css/StyleHome.css"/>
+
+<div class="main_wrap">
+	<div class="carousel_wrap">
+		<div class="carousel">
+				<div class='demo-container'>
+					<div class='carousel'>
+					  <input checked='checked' class='activator' id='carousel-slide-activator-1' name='carousel' type='radio'>
+					  <input class='activator' id='carousel-slide-activator-2' name='carousel' type='radio'>
+					  <input class='activator' id='carousel-slide-activator-3' name='carousel' type='radio'>
+					  <div class='controls'>
+						<label class='control control--forward' for='carousel-slide-activator-2'>&#8250;</label>
+					  </div>
+					  <div class='controls'>
+						<label class='control control--backward' for='carousel-slide-activator-1'>&#8249;</label>
+						<label class='control control--forward' for='carousel-slide-activator-3'>&#8250;</label>
+					  </div>
+					  <div class='controls'>
+						<label class='control control--backward' for='carousel-slide-activator-2'>&#8249;</label>
+					  </div>
+					  <div class='screen'>
+						<div class='track'>
+							<div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'>
+								<div class='demo-content' >
+									<img class ='carousel_image' src="static/assets/images/carousel1.png">
+								</div>
+							</div>
+							<div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'>
+								<div class='demo-content'>
+									<img class ='carousel_image' src="static/assets/images/carousel1.png">
+								</div>
+							</div>
+							<div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'>
+								<div class='demo-content'>
+									<img class ='carousel_image' src="static/assets/images/carousel1.png">
+								</div>
+							</div>
+							<div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'>
+								<div class='demo-content'>
+									<img class ='carousel_image' src="static/assets/images/carousel1.png">
+								</div>
+							</div>
+							<div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'>
+								<div class='demo-content'>
+									<img class ='carousel_image' src="static/assets/images/carousel1.png">
+								</div>
+							</div>
+							<div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'>
+								<div class='demo-content'>
+									<img class ='carousel_image' src="static/assets/images/carousel1.png">
+								</div>
+							</div>
+							<div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'>
+								<div class='demo-content'>
+									<img class ='carousel_image' src="static/assets/images/carousel1.png">
+								</div>
+							</div>
+							<div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'>
+								<div class='demo-content'>
+									<img class ='carousel_image' src="static/assets/images/carousel1.png">
+								</div>
+								</div>
+							<div class='item item--mobile-in-1 item--tablet-in-2 item--desktop-in-3'>
+								<div class='demo-content'>
+									<img class ='carousel_image' src="static/assets/images/carousel1.png">
+								</div>
+								</div>
+						</div>
+					  </div>
+					</div>
+				</div>
+		</div>
+	</div>
+
+	<div class="notation">
+			<a class="mid_note">Топ фильмов:</a>
+		</div>
+
+	<main class="main_content">
+		<div class="content_wrap">
+			<div class="items_container">
+
+				{% for film in films %}
+				<a class="film_link" href="{{ url_for('film', film_id=film.fid) }}">
+					<div class="film_item">
+
+							<div>
+								{% if film.poster %}
+									<img class="film_image" src="{{ url_for('static', filename=film.poster.replace('\\', '/')) }}" alt="" />
+								{% else %}
+									<img class="film_image" src="static/assets/images/film_empty.png" alt="" />
+								{% endif %}
+							</div>
+							<div class="film_name_box">
+								<h2 class="film_name">{{ film.name }}</h2>
+								<p class="film_name_eng">{{ film.engname }}, <span class="film_year">{{ film.year_of_release }}</span></p>
+								<div class="film_description_box">
+									<p class="film_description_title">Описание</p>
+									<p class="film_description">{{ film.description }}</p>
+								</div>
+								<div class="film_rating_box">
+									{% if film.amount_rating == 0 %}
+										<p class="film_rating film_rating_excelent" style="color:#C7D0CC">{{ film.average_rating }} </p>
+										<p class="film_rating_vote">{{ film.amount_rating }}</p>
+									{% else %}
+										<p class="film_rating film_rating_excelent">{{ film.average_rating }} </p>
+										<p class="film_rating_vote">{{ film.amount_rating }}</p>
+									{% endif %}
+								</div>
+							</div>
+					</div>
+				</a>
+				{% endfor %}
+
+			</div>
+		</div>
+	</main>
+</div>
+	{% endblock %}

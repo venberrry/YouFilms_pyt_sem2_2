@@ -1,0 +1,86 @@
+{% extends 'MainPage.html' %}
+
+{% block title %}
+    Создать Фильм
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/css/StyleCreateFilm.css" />
+
+<div class="create_film_wrap">
+    <div class="create_film_back">
+        <form action="{{ url_for('create_film') }}" method="POST" class="form" enctype="multipart/form-data">
+            <div class="create_film_container">
+                <div class="film_info_container">
+                    <div id="image_status"></div>
+                    <div class="film_info">
+                        <div class="option">Постер (фото):</div>
+                        <div class="value file_input_wrap">
+                            <label class="file_input_label" >Выбрать постер</label>
+                            <input class="value_input file_input" name="poster" type="file" accept="image/*" required />
+                        </div>
+                    </div>
+                    <div class="film_info">
+                        <div class="option">Название:</div>
+                        <div class="value">
+                            <input class="value_input" name="name" type="text" required />
+                        </div>
+                    </div>
+                    <div class="film_info">
+                        <div class="option">Английское название:</div>
+                        <div class="value">
+                            <input class="value_input" name="engname" type="text" required/>
+                        </div>
+                    </div>
+                    <div class="film_info">
+                        <div class="option">Жанры:</div>
+                        <div class="value">
+                            <input class="value_input" name="genres" type="text" required/>
+                        </div>
+                    </div>
+                    <div class="film_info">
+                        <div class="option">Год выпуска:</div>
+                        <div class="value">
+                            <input class="value_input" name="year_of_release" type="text" required/>
+                        </div>
+                    </div>
+                    <div class="film_info">
+                        <div class="option">Страна:</div>
+                        <div class="value">
+                            <input class="value_input" name="county" type="text" required/>
+                        </div>
+                    </div>
+                    <div class="film_info">
+                        <div class="option">MPAA:</div>
+                        <div class="value">
+                            <input class="value_input" name="mpaa" type="text" required/>
+                        </div>
+                    </div>
+                    <div class="film_info">
+                        <div class="option">Время:</div>
+                        <div class="value">
+                            <input class="value_input" name="time_duration" type="text" required/>
+                        </div>
+                    </div>
+                    <div class="film_info">
+                        <div class="option">Описание:</div>
+                        <div class="value" >
+                            <textarea style="height: 80px" class="value_input" name="description" maxlength="500" rows="4" required></textarea>
+                        </div>
+                    </div>
+                    <div class="film_info">
+                        <div class="option">Режиссёр:</div>
+                        <div class="value">
+                            <input class="value_input" name="director" type="text" required/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="create_film_button_wrap">
+    <input type="submit" class="create_film_button accept_button" value="Создать фильм" />
+</div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'MainPage.html' %}
+
+{% block title %}
+    Страница сериалов
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/StyleHome.css') }}"/>
+
+<div class="main_wrap">
+    <div class="notation">
+        <a class="mid_note">Топ сериалов:</a>
+    </div>
+
+    <main class="main_content">
+        <div class="content_wrap">
+            <div class="items_container">
+
+                {% for serial in serials %}
+                <a class="film_link" href="{{ url_for('serial', serial_id=serial.sid) }}">
+                    <div class="film_item">
+
+                        <div>
+                            {% if serial.poster %}
+                                <img class="film_image" src="{{ serial.poster }}" alt="">
+                            {% else %}
+                                <img class="film_image" src="{{ url_for('static', filename='assets/images/film_empty.png') }}" alt="" />
+                            {% endif %}
+                        </div>
+                        <div class="film_name_box">
+                            <h2 class="film_name">{{ serial.name }}</h2>
+                            <p class="film_name_eng">{{ serial.engname }}, <span class="film_year">{{ serial.year_of_release }}</span></p>
+                            <div class="film_description_box">
+                                <p class="film_description_title">Описание</p>
+                                <p class="film_description">{{ serial.description }}</p>
+                            </div>
+                            <div class="film_rating_box">
+                                {% if serial.amount_rating == 0 %}
+                                    <p class="film_rating film_rating_excelent" style="color:#C7D0CC">{{ serial.average_rating }}</p>
+                                    <p class="film_rating_vote">{{ serial.amount_rating }}</p>
+                                {% else %}
+                                    <p class="film_rating film_rating_excelent">{{ serial.average_rating }}</p>
+                                    <p class="film_rating_vote">{{ serial.amount_rating }}</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+
+            </div>
+        </div>
+    </main>
+</div>
+{% endblock %}

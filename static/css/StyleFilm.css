@@ -1,0 +1,804 @@
+
+/*Main*/
+
+.main_wrap {
+    width: 100%;
+    background: #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 0 0 40px 40px;
+    display: flex;
+    justify-content: center;
+    font-size: 0;
+}
+
+.upper_wrap {
+    width: 1233px;
+    height: 750px;
+    margin-top: 100px;
+}
+
+.upper_container {
+    display: flex;
+    margin-right: 87px;
+}
+
+
+/*Левое Постер+Избранные*/
+
+.poster_column {
+    width: 300px;
+    height: 540px;
+    margin-right: 90px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.poster {
+    width: 300px;
+    height: 450px;
+}
+
+.button_under_poster{
+    margin-top: 40px;
+    width: 250px;
+    height: 50px;
+}
+
+.favorites_button_long {
+    width: 250px;
+    height: 50px;
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: 20px;
+    border: none;
+    font-family: 'PlayBold';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.07em;
+    color: #FFFFFF;
+}
+
+.favorites_button_long:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+/*Середина описание*/
+
+.description_column {
+    width: 500px;
+    height: 540px;
+    display: block;
+}
+
+.film_name_container {
+    display: block;
+}
+
+.film_name {
+
+    height: 46px;
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 46px;
+    letter-spacing: 0.07em;
+    color:#ffffff;
+    margin-right: 20px;
+}
+
+.first_line {
+    display: flex;
+}
+
+.favorites_wrap {
+    width: 45px;
+    height: 45px;
+}
+
+.favorites_button {
+    background: none;
+    border-radius: 0px;
+    cursor: pointer;
+    border: none;
+    padding: 0;
+}
+
+.like_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rating_column {
+    width: 130px;
+    height: 540px;
+    margin-left: 215px;
+    display: flex;
+    justify-content: center;
+}
+
+.like {
+    opacity: 0.6;
+}
+
+.like:hover {
+    opacity: 1;
+}
+
+.eng_name {
+    margin-top: 5px;
+    font-family: 'Play';
+    font-style: bold;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.07em;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.description_container{
+    margin-top: 40px;
+}
+
+.description {
+    color: #ffffff;
+    margin-bottom: 28px;
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.07em;
+    color: #FFFFFF;
+}
+
+.info_container {
+    display: block;
+}
+
+.info {
+    color: #ffffff;
+    margin: 27px 0;
+    color: #FFFFFF;
+    display: flex;
+    align-items: baseline;
+}
+
+.option {
+    width: 180px;
+    height: 26px;
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.07em;
+    color: #FFFFFF;
+    opacity: 0.7;
+    margin-right: 45px;
+}
+
+.value {
+    width: 275px;
+    height: 26px;
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 23px;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    letter-spacing: 0em;
+}
+
+
+/*Правый рейтинг*/
+
+.rating_column {
+    width: 130px;
+    height: 130px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.rating_container {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+    color: #FFD362;
+}
+
+.rating_excelent {
+    color: #FFD362;
+}
+
+.rating_good {
+    color: #54BA25;
+}
+
+.rating_neutral {
+    color:  rgb(255, 255, 255, 0.5);
+}
+
+.rating_bad {
+    color: #DE5845;
+}
+
+.rating_container {
+    font-family: 'InterReg';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 48px;
+    line-height: 58px;
+    margin-bottom: 13px;
+}
+
+.rating {
+    text-align: center;
+}
+
+.rating_amounts {
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.review_button_wrap {
+    width: 100%;
+    height: 100%;
+}
+
+.review_button {
+    width: 130px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    border: none;
+    font-family: 'PlayBold';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.07em;
+    color: #FFFFFF;
+}
+
+.review_button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.review_button_inside {
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+}
+
+.lower_review_button_wrap {
+    margin-top: 65px;
+    display:flex;
+    justify-content: center
+}
+
+.lower_review_button {
+    width: 830px;
+    height: 70px;
+    font-family: 'PlayBold';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.07em;
+    color: #FFFFFF;
+    border: none;
+   margin: auto;
+   --boxW: 830px;
+   --boxH: 70px;
+   --borderW: 23%;
+   --borderH: 21%;
+   --borderSize: 4px;
+
+   width: var(--boxW);
+   height: var(--boxH);
+   margin: auto;
+   background-color: rgba(0, 0, 0, 0.1);
+   background-image: linear-gradient(rgba(249, 191, 59, 1) var(--borderH), transparent var(--borderH), transparent calc(var(--boxH) - var(--borderH)), rgba(249, 191, 59, 1) calc(var(--boxH) - var(--borderH))),
+                     linear-gradient(90deg, rgba(249, 191, 59, 1) var(--borderW), transparent var(--borderW), transparent calc(var(--boxW) - var(--borderW)), rgba(249, 191, 59, 1) calc(var(--boxW) - var(--borderW))),
+                     linear-gradient(rgba(249, 191, 59, 1) var(--borderH), transparent var(--borderH), transparent calc(var(--boxH) - var(--borderH)), rgba(249, 191, 59, 1) calc(var(--boxH) - var(--borderH))),
+                     linear-gradient(90deg, rgba(249, 191, 59, 1) var(--borderW), transparent var(--borderW), transparent calc(var(--boxW) - var(--borderW)), rgba(249, 191, 59, 1) calc(var(--boxW) - var(--borderW)));
+   background-size: var(--borderSize) var(--boxH), var(--boxW) var(--borderSize), var(--borderSize) var(--boxH), var(--boxW) var(--borderSize);
+   background-position: 0 0, 0 0, 100% 100%, 100% 100%;
+   background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+   text-decoration: none;
+}
+
+.lower_review_button:hover {
+    background-color: #0C0C0C;
+}
+
+.review_button_text {
+    font-family: 'PlayBold';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    text-align: center;
+    letter-spacing: 0.09em;
+    margin-left: 2px;
+    display: flex;
+    justify-content: center;
+    opacity: 1;
+    color: #ffffff;
+}
+
+.review_button_text_low{
+    display: flex;
+    justify-content: center;
+    margin-left: 2px;
+    margin-top: 15px;
+    text-decoration: none;
+}
+
+.lower_review_button_text{
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    letter-spacing: 0.07em;
+    color: #FFFFFF;
+    width: 490px;
+    height: 42px;
+}
+
+/*Модальное окно для написания отзыва*/
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    cursor: default;
+    z-index: 1000;
+  }
+  
+  .popup:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .popup__overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    cursor: default;
+  }
+  
+  .popup__box {
+    margin: 150px auto;
+    width: 1120px;
+    height: 610px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.52);
+    border-radius: 20px;
+    background-color:#151515;
+    color:rgba(255, 255, 255, 0.8);
+    display: flex;
+    position:  relative;
+  }
+
+.any_words_wrap{
+    margin: 20px 22px 30px 22px;
+}
+
+.popup__box_no_login {
+    margin: 150px auto;
+    width: 500px;
+    height: 300px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.52);
+    border-radius: 20px;
+    background-color:#151515;
+    color:rgba(255, 255, 255, 0.8);
+    display: flex;
+    position:  relative;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.any_words_wrap_no_login {
+    margin: 20px 22px 30px 22px;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.text_auth_first{
+    margin-bottom:40px;
+    width: 100%;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login_redirect{
+    font-size: 26px;
+    color: #E2E2E2;
+    opacity: 0.5;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    background: transparent;
+    text-align: center;
+    line-height: 33px;
+    text-decoration: none;
+    width: 135px;
+    height: 35px;
+}
+
+.login_redirect:hover{
+    opacity: 1;
+}
+
+.short_words_wrap{
+    display: flex;
+    width: 1076px;
+    height: 50px;
+    background: #000000;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.short_words{
+    display: flex;
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #F9F9F9;
+    margin: 9px auto auto 25px;
+}
+
+.short_in{
+    padding-left: 25px;
+    text-align: justify;
+    color: rgb(255, 255, 255);
+}
+
+::-webkit-input-placeholder{
+    color: white;
+}
+
+.short_in{
+    width: 1076px;
+    height: 50px;
+    background: #0B0B0B;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    border: none;
+
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #F9F9F9;
+}
+
+.long_words_wrap{
+    display: flex;
+    width: 1076px;
+    height: 400px;
+    background: #000000;
+    border-radius: 15px;
+}
+
+.long_in{
+    width: 1076px;
+    height: 400px;
+    background: #0B0B0B;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    border: none;
+
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #F9F9F9;
+}
+
+textarea{
+    padding-left: 25px;
+    text-align: justify;
+    padding-top: 10px;
+    padding-right: 25px;
+    resize: none;
+}
+
+.interactive_buttons{
+    margin-top: 30px;
+    display: flex;
+    justify-content: baseline;
+} 
+
+.stars_holds{
+    margin-left: 22px;
+    margin-right: 145px;
+}
+
+.starses {
+    margin: auto;
+    width: 550px;
+}
+.starses > * {
+    float: right;
+}
+@keyframes pulse {
+    50% {
+        color: #5e5e5e;
+        text-shadow: 0 0 15px #777;
+   }
+}
+.starses label {
+    height: 20px;
+    width: 10%;
+    display: block;
+    position: relative;
+    cursor: pointer;
+}
+.starses label:nth-of-type(5):after {
+    animation-delay: 0.25s;
+}
+.starses label:nth-of-type(4):after {
+    animation-delay: 0.2s;
+}
+.starses label:nth-of-type(3):after {
+    animation-delay: 0.15s;
+}
+.starses label:nth-of-type(2):after {
+    animation-delay: 0.1s;
+}
+.starses label:nth-of-type(1):after {
+    animation-delay: 0.05s;
+}
+.starses label:after {
+    transition: all 0.4s ease-out;
+    -webkit-font-smoothing: antialiased;
+    position: absolute;
+    content: "☆";
+    color: #444;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    font-size: 50px;
+    animation: 1s pulse ease;
+}
+.starses label:hover:after {
+    color: #5e5e5e;
+    text-shadow: 0 0 15px #5e5e5e;
+}
+.starses input {
+    display: none;
+}
+.starses input:checked + label:after, .starses input:checked ~ label:after {
+    content: "★";
+    color: #f9bf3b;
+    text-shadow: 0 0 20px #f9bf3b;
+}
+
+
+
+
+.send_button{
+    
+}
+
+.outer{
+    --boxW: 225px;
+   --boxH: 52px;
+}
+
+.text_outer{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 37px;
+    letter-spacing: 0.045em;
+    color: #F9BF3B;
+    text-decoration: none;
+    outline: none;
+    background: transparent;
+    outline: none;
+    border:none;
+}
+
+/*Отызвы снизу*/
+
+.review_section_wrap {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    flex: 1;
+    margin-bottom: 90px;
+    min-height: 200px;
+}
+
+.review_section {
+     width: 1449px;
+    background-color: #232323;
+    align-items: center;
+    padding-bottom: 80px;
+    border-radius: 30px;
+    min-height: 140px;
+}
+
+.review_block {
+    width: 1120px;
+    min-height: 150px;
+    background-color: #D8D8D8;
+    margin-top: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+    padding: 25px;
+    display: flex;
+}
+
+.user_icon{
+    margin-top: 8px;
+    width: 80px;
+    height: 80px;
+}
+
+.avatar_icon{
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    border-radius: 7px;
+}
+
+.review_text_container{
+    display: block;
+    width: 810px;
+    margin-left: 15px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    letter-spacing: 0em;
+    margin-top: 13px;
+}
+
+.caption{
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    letter-spacing: 0em;
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: 0.07em;
+    color: #000000;
+}
+
+.user_name{
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.07em;
+    color: #000000;
+    opacity: 0.7;
+    margin-left: 11px;
+}
+
+.review_text{
+    width: 800px;
+    height: auto;
+    display: flex;
+    white-space: pre-line;
+    word-break: break-word;
+    margin-left: 10px;
+    margin-bottom: 20px;
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    letter-spacing: 0.07em;
+    color: #000000;
+}
+
+.evaluation{
+    border-radius: 30.2077px;
+    width: 90px;
+    height: 90px;
+    margin: 18px 0 0 40px;
+    display: flex;
+    justify-content: center;
+}
+
+.evaluation_excellent{
+    background: linear-gradient(134.6deg, #FFC46B 31.26%, #FFE55E 101.9%);
+}
+
+.evaluation_good {
+    background: linear-gradient(134.6deg, #7ECC6A 31.26%, #C2FF5E 101.9%);
+}
+
+.evaluation_neutral {
+    background: linear-gradient(134.6deg, #949494 31.26%, #E7E7E7 101.9%);
+}
+
+.evaluation_bad {
+    background: linear-gradient(134.6deg, #F26060 31.26%, #EEB47F 101.9%);
+}
+
+.eval{
+    padding: 6px 6px 0 0;
+    width: 70px;
+    height: 70px;
+    font-family: 'Play';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 45px;
+    line-height: 74px;
+    text-align: center;
+    letter-spacing: -0.085em;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}

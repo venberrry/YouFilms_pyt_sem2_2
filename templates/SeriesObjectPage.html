@@ -1,0 +1,218 @@
+{% extends 'MainPage.html' %}
+
+{% block headers %}
+<link rel="stylesheet" type="text/css" href="../static/css/StyleFilm.css" xmlns="http://www.w3.org/1999/html"/>
+{% endblock %}
+
+{% block content %}
+<div class="main_wrap">
+    <div class="upper_wrap">
+        <div class="upper">
+            <div class="upper_container">
+
+                <div class="poster_column">
+                    {% if serial.poster %}
+                        <img class="poster" src="{{ serial.poster }}" alt="">
+                    {% else %}
+                        <img class="poster" src="{{ url_for('static', filename='assets/images/serial_empty.png') }}" alt="">
+                    {% endif %}
+                </div>
+
+                <div class="description_column">
+                    <div class="film_name_container">
+                        <div class="first_line">
+                            <h4 class="film_name">{{ serial.name }}</h4>
+                            <div class="favorites_wrap">
+                                <button class="favorites_button">
+                                    <span class="like_container">
+                                        <img class="like" src="../static/assets/images/favorite_button.svg"/>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <h6 class="eng_name">{{ serial.engname }}</h6>
+                    </div>
+                    <div class="description_container">
+                        <a class="description">Описание:</a>
+                        <div class="info_container">
+                            <div class="info">
+                                <div class="option">Год:</div>
+                                <div class="value">{{ serial.year_of_release }}</div>
+                            </div>
+                            <div class="info">
+                                <div class="option">Страна:</div>
+                                <div class="value">{{ serial.county }}</div>
+                            </div>
+                            <div class="info">
+                                <div class="option">Жанр:</div>
+                                <div class="value">{{ serial.genres }}</div>
+                            </div>
+                            <div class="info">
+                                <div class="option">Режиссёр:</div>
+                                <div class="value">{{ serial.director }}</div>
+                            </div>
+                            <div class="info">
+                                <div class="option">Возраст:</div>
+                                <div class="value">{{ serial.mpaa }}</div>
+                            </div>
+                            <div class="info">
+                                <div class="option">Время:</div>
+                                <div class="value">{{ serial.time_duration }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rating_column">
+                    <div class="rating_container">
+                        {% if serial.average_rating == 0 %}
+                                    <div class="rating rating_neutral">{{ serial.average_rating }}</div>
+                                {% elif serial.average_rating <= 4 %}
+                                    <div class="rating rating_bad">{{ serial.average_rating }}</div>
+                                {% elif serial.average_rating <= 6 %}
+                                    <div class="rating rating_neutral">{{ serial.average_rating }}</div>
+                                {% elif serial.average_rating <= 8 %}
+                                    <div class="rating rating_good">{{ serial.average_rating }}</div>
+                                {% elif serial.average_rating <= 10 %}
+                                    <div class="rating rating_excelent">{{ serial.average_rating }}</div>
+                                {% endif %}
+                                <div>
+                </div>
+            </div>
+        </div>
+        <!-- Нижняя часть, кнопки и т.д., аналогично фильмам -->
+    </div>
+
+</div>
+        <div class="lower_review_button_wrap">
+                        <a class="lower_review_button" {% if session.auth %}href="#popup1"{% else %}href="#popup2"{% endif %}>
+                            <div class="review_button_text_low">
+                                <img src="../static/assets/images/review_pen.svg">
+                                <div class="lower_review_button_text">Напишите свой отзыв...</div>
+                            </div>
+                        </a>
+                </div>
+                {% if session.auth %}
+                <div id="popup1" class="popup">
+                    <a href="#" class="popup__overlay"></a>
+                    <div class="popup__box">
+                        <form action="{{ url_for('serial', serial_id=serial.sid) }}" method="POST" enctype="multipart/form-data">
+                            {{ form.hidden_tag() }}
+                            <input type="hidden" name="serial" value="{{ serial.sid }}">
+                            <div class="any_words_wrap">
+                                <div class="short_words_wrap">
+                                    {{ form.title(class="short_in", placeholder="- Напишите отзыв в двух словах...", required=True) }}
+                                </div>
+                                <div class="long_words_wrap">
+                                    {{ form.review_text(class="long_in", placeholder="- Напишите свой отзыв не в двух словах...(если хоть одно поле будет пустым, отзыв не опубликуется)", required=True) }}
+                                </div>
+                                <div class="interactive_buttons">
+                                    <div class="stars_holds">
+                                        <div class="starses">
+                                            {% for value in range(1, 11) %}
+                                                <input class="st" type="radio" name="{{ form.rating.name }}" id="r{{ value }}" value="{{ 11 - value }}" required>
+                                                <label for="r{{ value }}"></label>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <div class="send_button">
+                                        <div class="lower_review_button outer">
+                                            <div class="review_button_text_low">
+                                                {{ form.submit(class="lower_review_button_text,text_outer") }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                  </div>
+                {% else %}
+                <div id="popup2" class="popup">
+                    <a href="#" class="popup__overlay"></a>
+                    <div class="popup__box_no_login">
+                      <div class="any_words_wrap_no_login">
+                          <div class="text_auth_first">
+                              Сначала авторизуйтесь
+                          </div>
+                          <div>
+                                  <a class="login_redirect" href="{{ url_for('login') }}">< Авторизоваться ></a>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+                {% endif %}
+
+            </div>
+            </div>
+        <div class="review_section_wrap">
+                <div class="review_section">
+                    {% for pair in review_commentator_pairs %}
+                        <div class="review_block">
+                            <div class="user_icon">
+                                {% if pair.commentator[0].avatar %}
+                                    <img class="avatar_icon" src="{{ url_for('static', filename=pair.commentator[0].avatar.replace('\\', '/')) }}" alt="" />
+                                {% else %}
+                                    <img class="avatar_icon" src="{{ url_for('static', filename='assets/images/film_empty.png') }}" alt="" />
+                                {% endif %}
+                            </div>
+                            <div class="review_text_container">
+                                <div class="caption">
+                                    <a>-</a>
+                                    <a>{{ pair['review']['title'] }}</a>
+                                </div>
+                                <div class="user_name">
+                                    {{ pair['commentator'].User.login }}
+                                </div>
+                                <div class="review_text">
+                                    {{ pair['review'].review_text }}
+                                </div>
+                            </div>
+
+                            {% set int_rating = pair['review']['rating'] | int %}
+
+                            {% if int_rating == 0 %}
+                                <div class="evaluation evaluation_excellent">
+                                    <a class="eval">{{ int_rating }}</a>
+                                </div>
+                            {% elif int_rating <= 4 %}
+                                <div class="evaluation evaluation_bad">
+                                    <a class="eval">{{ int_rating }}</a>
+                                </div>
+                            {% elif int_rating <= 6 %}
+                                <div class="evaluation evaluation_neutral">
+                                    <a class="eval">{{ int_rating }}</a>
+                                </div>
+                            {% elif int_rating <= 8 %}
+                                <div class="evaluation evaluation_good">
+                                    <a class="eval">{{ int_rating }}</a>
+                                </div>
+                            {% elif int_rating <= 10 %}
+                                {% if int_rating == 10 %}
+                                    <div class="evaluation evaluation_excellent">
+                                        <a class="eval max_rate">{{ int_rating }}</a>
+                                    </div>
+                                {% else %}
+                                    <div class="evaluation evaluation_excellent">
+                                        <a class="eval">{{ int_rating }}</a>
+                                    </div>
+                                {% endif %}
+                            {% endif %}
+
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var starsInputs = document.querySelectorAll('.st');
+            starsInputs.forEach(function(input) {
+                input.addEventListener('click', function() {
+                    document.querySelector('.stars_hidden').value = input.value;
+                });
+            });
+        });
+    </script>
+{% endblock %}

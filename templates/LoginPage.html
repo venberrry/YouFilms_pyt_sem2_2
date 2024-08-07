@@ -1,0 +1,40 @@
+{% extends 'MainPage.html' %}
+
+{% block title %}
+    Залогиниться
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="static/css/StyleLogin.css"/>
+
+<div class="form_area">
+	<div class="form_wrap">
+		<form class="form"action="{{ url_for('login') }}" method="POST">
+            {{ form.hidden_tag() }}
+            {% if warning %}
+                <a class="warning">{{ warning }}</a>
+            {% endif %}
+
+            <div class="login_wrap">
+                <label for="username">Логин</label>
+                {{ form.username(class="input_area", required=True) }}
+            </div>
+
+            <div class="password_wrap">
+            <label for="password">Пароль</label>
+                {{ form.password(class="input_area", required=True, type=password) }}
+            </div>
+
+            <div class="enter_btn">
+            {{ form.submit(class="btn", placeholder="< Войти >") }}
+            </div>
+
+        </form>
+
+	</div>
+
+    </div>
+</div>
+
+{% endblock %}

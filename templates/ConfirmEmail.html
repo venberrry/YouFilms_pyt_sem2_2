@@ -1,0 +1,22 @@
+{% extends 'MainPage.html' %}
+
+{% block title %}
+    Подтверждение Email
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="../static/css/StyleConfirmEmail.css">
+
+<div class="email-confirmation">
+    <form action="{{ url_for('confirm_email') }}" method="post">
+        <h1 style="color: #f3f3ee">Подтвердите ваш Email</h1>
+        <p>Введите код подтверждения, отправленный на вашу почту.</p>
+        <div class="form-group">
+            <label style="color: #d1d1cd" for="code">Код подтверждения:</label>
+            <input type="text" id="code" name="code" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Подтвердить</button>
+    </form>
+</div>
+
+{% endblock %}

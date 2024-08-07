@@ -1,0 +1,43 @@
+{% extends 'MainPage.html' %}
+
+{% block title %}
+    Помощь
+{% endblock %}
+
+{% block content %}
+<div class="support-content">
+    <h1>Помощь и поддержка</h1>
+
+    <!-- Чат -->
+    <div id="chat-text"></div>
+    <input class="msg_field" id="input-text" placeholder="Введите текст">
+    <button id="submit">submit</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+<script type="text/javascript">
+    var socket_chat = io('/chat');
+
+    socket_chat.on('mymsg', function(data) {
+        var chat_text = document.getElementById('chat-text');
+        console.log("data gotten: " + data);
+        chat_text.innerHTML += '<p style="color: midnightblue">' + "USER: " + data + '</p>';
+    });
+
+    socket_chat.on('recv', function(data) {
+        var chat_text = document.getElementById('chat-text');
+        console.log("data gotten: " + JSON.stringify(data));
+        chat_text.innerHTML += '<p style="color: blueviolet">' + "SUPPORT: " + data.length_msg + " " + data.latin_msg + '</p>';
+    });
+
+    var input_text = document.getElementById('input-text');
+    var submit = document.getElementById('submit');
+
+    submit.addEventListener('click', function() {
+        console.log('clicked!');
+        var msg = input_text.value;
+        socket_chat.emit('send_msg', {msg: msg});
+        input_text.value = '';
+    });
+</script>
+{% endblock %}

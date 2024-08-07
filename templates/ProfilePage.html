@@ -1,0 +1,92 @@
+{% extends 'MainPage.html' %}
+
+{% block title %}
+    Профиль
+{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="static/css/StyleProfile.css" />
+
+<div class="profile_wrap">
+    <div class="profile_back">
+            <div class="profile_container">
+                <div class="user_container">
+                    <div class="left_block">
+                         <form action="{{ url_for('update_avatar') }}" method="POST" enctype="multipart/form-data" class="form" id="avatar_form">
+                        {{ form.hidden_tag() }}
+                        <div class="avatar_container">
+                            {% if profile_obj.avatar %}
+                                <img class="avatar" src="{{ url_for('static', filename=profile_obj.avatar).replace('%5C', '/') }}" alt="avatar" />
+                            {% else %}
+                                <img class="avatar" src="{{ url_for('static', filename='assets/images/film_empty.png') }}" alt="default avatar" />
+                            {% endif %}
+                        </div>
+                        <div class="upload_container">
+                            {{ form.avatar(class="upload_btn", onchange="document.getElementById('avatar_form').submit();") }}
+                        </div>
+                    </form>
+                    </div>
+                    <div class="right_block_container">
+                        <div class="right_block">
+                            <form action="{{ url_for('update_name') }}" method="POST" enctype="multipart/form-data" class="form">
+                                {{ form.hidden_tag() }}
+                                <div class="info_container">
+                                    {% if warn %}
+                                        <p class="warn">{{ warn }}</p>
+                                    {% endif %}
+                                    <div class="info">
+                                        {{ form.name.label(class="option") }}
+                                        {{ form.name(class="value, value_input") }}
+                                        <input type="submit" class="check_btn" value="Change">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Отдельная форма для проверки Email -->
+                        <form action="{{ url_for('change_email_request') }}" method="POST" class="form">
+                            <div class="right_block">
+                                <div class="info_container">
+                                    <div class="info">
+                                        {{ form.email.label(class="option") }}
+                                        {{ form.email(class="value, value_input") }}
+                                        <input type="submit" class="check_btn" value="Check">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!--Отдельная форма для био -->
+                        <form action="{{ url_for('update_bio') }}" method="POST" class="form">
+                            <div class="right_block" style="height: 200px">
+                                <div class="info_container">
+                                    <div class="info">
+                                        {{ form.bio.label(class="option") }}
+                                        {{ form.bio(class="value, value_input, bio_input",maxlength="400") }}
+                                        <input type="submit" class="check_btn" value="Change">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- Отдельная форма для кнопки удаления профиля -->
+                        <form action="{{ url_for('delete_profile') }}" method="POST" class="form">
+                            <div class="right_block">
+                                <div class="info_container">
+                                    <div class="info delete_btn">
+                                        <input type="submit" class="delete_btn" value="Delete" onclick="return confirm('Вы уверены?') ">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="bottom_block">
+            <div class="exit_container">
+                <a class="exit" href="{{ url_for('logout') }}">Выйти из профиля</a>
+            </div>
+            </div>
+    </div>
+</div>
+
+{% endblock %}
